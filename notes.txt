@@ -1,0 +1,84 @@
+https://www.awardspace.com/
+
+Name: wasmia almansoori
+login: h00301385@hct.ac.ae
+password: 12345678w
+
+Database:
+3225733_db1
+password: 12345678w
+-----------------
+CREATE TABLE IF NOT EXISTS user (
+  user_email varchar (250) NOT NULL,
+  user_password varchar (250) NOT NULL,
+  PRIMARY KEY (user_email)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7;
+
+INSERT INTO user (user_email, user_password) VALUES
+('alibaba@yahoo.com', 'test1'),
+('samirsabri@yahoo.com', 'test2'),
+('jamesbond@yahoo.com', 'test3');
+
+http://wasmia.atwebpages.com/get_user.php?user_email=alibaba@yahoo.com&user_password=test1
+-------------
+CREATE TABLE IF NOT EXISTS student (
+  student_id varchar (250) NOT NULL,
+  student_password varchar (250) NOT NULL,
+  student_name varchar (250) NOT NULL,
+  student_email varchar (250) NOT NULL,
+  student_phone varchar (250) NOT NULL,
+  
+  points decimal (10,2) NOT NULL,
+  
+  student_book_time varchar (250) NOT NULL,
+  student_book_duration varchar (250) NOT NULL,
+  student_book_code varchar (250) NOT NULL,
+  student_car_plate varchar (250) NOT NULL,
+  parking_lot_id varchar (250) NOT NULL,
+  PRIMARY KEY (student_id)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7;
+
+INSERT INTO student (student_id, student_password, student_name, 
+student_email, student_phone, 
+points, student_book_time, student_book_duration,student_book_code,student_car_plate,parking_lot_id) VALUES
+('H00111111', '123456','Aysha','H00111111@hct.ac.ae','0501111111','100.0','',0.0,'','',''),
+('H00222222', '123456','Fatma','H00222222@hct.ac.ae','0502222222','100.0','',0.0,'','',''),
+('H00333333', '123456','Sara','H00333333@hct.ac.ae', '0503333333','100.0','',0.0,'','','');
+
+CREATE TABLE IF NOT EXISTS parking_lot (
+  parking_lot_id varchar (250) NOT NULL,
+  parking_lot_price decimal(10,2) NOT NULL,
+  PRIMARY KEY (parking_lot_id)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7;
+
+INSERT INTO parking_lot (parking_lot_id, parking_lot_price) VALUES
+('R1P1', '20.0'),
+('R1P2', '20.0'),
+('R1P3', '20.0'),
+('R1P4', '20.0'),
+('R2P1', '15.0'),
+('R2P2', '15.0'),
+('R2P3', '15.0'),
+('R2P4', '15.0'),
+('R3P1', '10.0'),
+('R3P2', '10.0'),
+('R3P3', '10.0'),
+('R3P4', '10.0'),
+('R4P1', '5.0'),
+('R4P2', '5.0'),
+('R4P3', '5.0'),
+('R4P4', '5.0');
+---->
+Check balance
+if balance ok
+	1-deduct money (Total)
+	2-update student_book_time (Current time)
+	3-update student_book_duration (Duration)
+	4-update parking_lot_id as Globals.getInstance().parking_lot_id
+	for student_id = Globals.getInstance().student_id
+	
+reserve_parking.php
+
+http://wasmia.atwebpages.com/reserve_parking.php?student_id=H00111111&total=20.0&student_book_time=aaaa&student_book_duration=7Hrs&parking_lot_id=R1P1
+
+http://wasmia.atwebpages.com/reserve_parking.php?student_id=H00111111&total=20.0&student_book_time=aaaa&student_book_duration=7Hrs&parking_lot_id=R1P1&student_car_plate=cccccc
